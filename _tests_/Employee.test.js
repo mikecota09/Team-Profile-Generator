@@ -1,7 +1,12 @@
-const { it } = require('@jest/globals')
-const { describe } = require('yargs')
 const Employee = require('../lib/Employee')
 
 describe('Employee Class', () => {
-    it('')
-})
+    describe('Initialization', () => {
+        it('Should create an object with an id and name', () => {
+            const employee = new Employee(123, 'Bob')
+
+            expect(employee.id).toEqual(123);
+            expect(employee.name).toEqual('Bob');
+        });
+    });
+});

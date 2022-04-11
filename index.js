@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer')
 const fs = require('fs');
+const generateTeam = require('./src/generateTeam');
 
 
 team = [];
@@ -81,7 +83,7 @@ const engineerQuestions = () => {
     ])
     .then((engineerAnswers) => {
         console.log(engineerAnswers)
-        const engineer = new Engineer(engineerAnswers.engineerName, engineerAnswers.engineerID, engineerAnswers.engineerEmail, engineerAnswers.Github)
+        const engineer = new Engineer(engineerAnswers.engineerName, engineerAnswers.engineerID, engineerAnswers.engineerEmail, engineerAnswers.engineerGithub)
         team.push(engineer)
         console.log(engineer)
         switch(engineerAnswers.addMember) {
@@ -142,4 +144,9 @@ const internQuestions = () => {
     })
 }
 
-managerQuestions();
+function writeToFile(filename, data) {
+    fs.writeFile(filename, data, (err) => {
+        if(err) throw err;
+        console.log('file saved')
+    });
+};
