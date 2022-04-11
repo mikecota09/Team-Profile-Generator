@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
 const fs = require('fs');
 
+
+team = [];
 const managerQuestions = () => {
     inquirer.prompt([
         {
@@ -30,13 +33,19 @@ const managerQuestions = () => {
             choices: ['Engineer', 'Intern', 'I don\'t want to add any more team members'],
         }
     ])
-    .then((manager) => {
-        switch(manager.addMember) {
+    .then((managerAnswers) => {
+        console.log(managerAnswers)
+        const manager = new Manager(managerAnswers.id, managerAnswers.name, managerAnswers.email, managerAnswers.officeNumber)
+        team.push(manager)
+        console.log(manager)
+        switch(managerAnswers.addMember) {
             case 'Engineer':
                 engineerQuestions();
                 break;
             case 'Intern':
                 internQuestions();
+                break;
+            default:
         }
     })
 };
@@ -70,8 +79,20 @@ const engineerQuestions = () => {
             choices: ['Engineer', 'Intern', 'I don\'t want to add any more team members'],
         }
     ])
-    .then((engineer) => {
+    .then((engineerAnswers) => {
+        console.log(engineerAnswers)
+        const engineer = new Engineer(engineerAnswers.engineerName, engineerAnswers.engineerID, engineerAnswers.engineerEmail, engineerAnswers.Github)
+        team.push(engineer)
         console.log(engineer)
+        switch(engineerAnswers.addMember) {
+            case 'Engineer':
+                engineerQuestions();
+                break;
+            case 'Intern':
+                internQuestions();
+                break;
+            default:
+        }
     })
 };
 
@@ -80,22 +101,22 @@ const internQuestions = () => {
         {
             type: 'input',
             name: 'internName',
-            message: 'What is the intern\'s name?',
+            message: 'What is the intern\'s name?'
         },
         {
             type: 'input',
             name: 'internID',
-            message: 'What is the intern\'s id?',
+            message: 'What is the intern\'s id?'
         },
         {
             type: 'input',
             name: 'internEmail',
-            message: 'What is the intern\'s email address?',
+            message: 'What is the intern\'s email address?'
         },
         {
             type: 'input',
             name: 'internSchool',
-            message: 'What is the intern\'s school?',
+            message: 'What is the intern\'s school?'
         },
         {
             type: 'list',
@@ -104,6 +125,21 @@ const internQuestions = () => {
             choices: ['Engineer', 'Intern', 'I don\'t want to add any more team members'],
         }
     ])
+    .then((internAnswers) => {
+        console.log(internAnswers)
+        const intern = new Intern(internAnswers.internName, internAnswers.internID, internAnswers.internEmail, internAnswers.internSchool)
+        team.push(intern)
+        console.log(intern)
+        switch(internAnswers.addMember){
+            case 'Engineer':
+                engineerQuestions();
+                break;
+            case 'Intern':
+                internQuestions();
+                break;
+            default:
+        }
+    })
 }
 
 managerQuestions();
