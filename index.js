@@ -83,7 +83,7 @@ const engineerQuestions = () => {
         }
     ])
     .then((engineerAnswers) => {
-        const engineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github)
+        const engineer = new Engineer(engineerAnswers.id, engineerAnswers.name, engineerAnswers.email, engineerAnswers.github)
         team.push(engineer)
         switch(engineerAnswers.addMember) {
             case 'Engineer':
@@ -128,7 +128,7 @@ const internQuestions = () => {
         }
     ])
     .then((internAnswers) => {
-        const intern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school)
+        const intern = new Intern(internAnswers.id, internAnswers.name, internAnswers.email, internAnswers.school)
         team.push(intern)
         switch(internAnswers.addMember){
             case 'Engineer':
