@@ -93,7 +93,7 @@ return `
   <title>My Team</title>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid bg-warning">
+<div class="jumbotron jumbotron-fluid bg-primary">
   <div class="container">
     <h1 class="display-4 text-center">My Team</h1>
   </div>
