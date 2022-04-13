@@ -40,3 +40,6 @@ Ensure the following packages were installed correctly
 6. The HTML file will be generated and stored in a folder. When the user opens the HTML file, it will display all the information in a nicely formatted team roster. 
 
 ## Demo
+
+Example HTML file:
+<img src ='assets\Team-Profile-Generator-dist-index-html-2022-04-13-16_15_04.png' alt='Screenshot of example team roster'>
