@@ -43,3 +43,5 @@ Ensure the following packages were installed correctly
 
 Example HTML file:
 <img src ='assets\Team-Profile-Generator-dist-index-html-2022-04-13-16_15_04.png' alt='Screenshot of example team roster'>
+
+[Link to the walkthrough video](https://drive.google.com/file/d/1mFox4JoNJCU-Bd9SdE_8F5gGEhRuSPYl/view)
